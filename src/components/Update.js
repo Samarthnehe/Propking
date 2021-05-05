@@ -7,20 +7,21 @@ import { useHistory } from 'react-router';
 function Update() {
     
     const [names,setNames]=useState('');
-    const [{currName},dispatch]=useStateValue();
+    const [{currName,token},dispatch]=useStateValue();
     const history=useHistory();
     // console.log(currName);
 
     const handleSubmit=(names,e)=>{
         e.preventDefault();
-        
-        console.log("heya");
+        let newToken="Bearer "+token;
+        console.log(newToken);
         axios({
             url:'https://prop-king.herokuapp.com/api/update',
             method:"PUT",
             headers:{
                 'Accept':'application/json',
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':newToken
             },
             data:{
                 toupdate:names,
@@ -34,12 +35,14 @@ function Update() {
               console.log("done bro");
               dispatch({
                   type:"SET",
-                  name:""
+                  name:"z"
               })
               history.push('/');
               
           }).catch(()=>{
               console.log("error");
+              history.push('/');
+              alert("Please Login");
           })
 
        

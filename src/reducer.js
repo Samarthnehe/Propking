@@ -1,7 +1,8 @@
   
 export const initialState={
     land:[],
-    currName:""
+    currName:"",
+    token:''
     
 };
 
@@ -28,6 +29,11 @@ const reducer= (state,action)=>{
                     currName:action.name
         
                  };
+            case "SET_TOKEN":
+                return {
+                    ...state,
+                    token:action.token
+                }
     }
 };
 

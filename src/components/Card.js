@@ -8,7 +8,8 @@ import { useStateValue } from '../StateProvider';
 function Card({name,area,city,country,state,img}) {
    
     const history=useHistory();
-    const [{currName},dispatch]=useStateValue();
+    const [{currName,token},dispatch]=useStateValue();
+    
   
     const handleName= ()=>{
         
@@ -22,12 +23,18 @@ function Card({name,area,city,country,state,img}) {
     }
 
     const handleCard=(name,e)=>{
+        let newToken=`Bearer ${token}`;
+        console.log(newToken)
         e.preventDefault();
         console.log("hea");
         axios({
             url:"https://prop-king.herokuapp.com/api/delete",
             method:"DELETE",
-            
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+                'Authorization':newToken
+            },
             data:{
                 name:name
             }
@@ -40,6 +47,7 @@ function Card({name,area,city,country,state,img}) {
             history.push('/');
         }).catch((error)=>{
             console.log(error);
+            alert("Please Login");
         })
     }
 

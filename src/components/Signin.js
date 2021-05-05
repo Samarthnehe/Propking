@@ -2,25 +2,36 @@ import React, { useState } from 'react';
 import './Signin.css';
 import {Link,useHistory} from 'react-router-dom';
 import axios from 'axios';
+import { useStateValue } from '../StateProvider';
 
 function Signin() {
 
     const history=useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const[{token},dispatch]=useStateValue();
 
 
-    const signIn=e=>{
+    const signIn=async (e)=>{
         e.preventDefault();
         console.log("hea")
-        axios({
+        await axios({
             url:"https://prop-king.herokuapp.com/api/login",
             method:"POST",
             data:{
                 name:email,
                 password:password
             }
-        }).then(()=>{
+        }).then((data)=>{
+            console.log(data)
+            sessionStorage.setItem("login",JSON.stringify({
+                login:true,
+                token:data.data.token
+            }))
+            dispatch({
+                        type:"SET_TOKEN",
+                        token:JSON.parse(sessionStorage.getItem('login')).token
+            })
             console.log("done");
             history.push('/');
             
@@ -31,6 +42,7 @@ function Signin() {
             history.push('/signup');
 
         })
+
 
     }
 

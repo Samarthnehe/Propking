@@ -10,7 +10,7 @@ import Signin from './components/Signin';
 import axios from 'axios';
 
 function App() {
-  const [{land,currName},dispatch]=useStateValue();
+  const [{land,currName,token},dispatch]=useStateValue();
   
   useEffect(async()=>{
     const result= await axios({
@@ -20,9 +20,18 @@ function App() {
                     type:"PUT_DATA",
                     land:result.data
                 })
+                if(JSON.parse(sessionStorage.getItem('login')) ){
+                  dispatch({
+                    type:"SET_TOKEN",
+                    token:JSON.parse(sessionStorage.getItem('login')).token 
+                  })
+                
+                }
+             
+
                 
   },[currName])
-
+  
   return (
     <Router>
     <div className="App">

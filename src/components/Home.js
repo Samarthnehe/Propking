@@ -9,8 +9,9 @@ import { useHistory } from 'react-router';
 
 function Home() {
 
-    const [{land},dispatch]=useStateValue();
+    const [{land,token},dispatch]=useStateValue();
     const history=useHistory();
+    let newToken="Bearer "+token;
     
     useEffect(()=>{
         var modal = document.getElementById("myModal");
@@ -50,6 +51,11 @@ function Home() {
         axios({
             url:'https://prop-king.herokuapp.com/api/send',
             method:"POST",
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+                'Authorization':newToken
+            },
             data:{
                 name:name,
                 area:area,
@@ -72,6 +78,7 @@ function Home() {
               
           }).catch(()=>{
               console.log("error");
+              alert("Please Login");
           })
 
           setName('');
