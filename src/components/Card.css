@@ -1,0 +1,75 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(252, 249, 249);
+    z-index: 1;
+    min-height: 400px;
+    min-width: 100px;
+
+    padding: 20px;
+    margin: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+
+}
+.card:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+}
+.card >.img{
+    width: 100%;
+   height: 100%;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    background-size: cover;
+    object-fit: contain;
+    margin-top: 10px;
+}
+.card__info{
+    height:100px;
+    width: 100%;
+    margin-bottom: 5px;
+    
+}
+.card__rating{
+    display: flex;
+    font-size: small;
+    margin-bottom: 20px;
+}
+.card>.buttons>button{
+    background-color: #66a6ff;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color:#66a6ff #4389eb #3b7dd8 ;
+    color: #111;
+    padding: 15px;
+    font-weight: 600;
+    width: 40%;
+
+}
+.card>.buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.card__price{
+    margin-top: 5px;
+}
+.card__info p span{
+    font-weight: 600;
+}
+.card__info .card__price p span{
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 560px) {
+    .card{
+        width: 100%;
+    }
+}

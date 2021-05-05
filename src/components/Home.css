@@ -1,0 +1,218 @@
+.home{
+    max-width: 1400px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: calc(100vh - 75px);
+    background-color: #FFFFFF;
+}
+.home__container{
+    width: 100%;
+}
+.home__image{
+    width: 100%;
+    z-index: -1;
+    margin-bottom: -300px;
+    mask-image: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)); 
+}
+.home__row__button{
+    display: flex;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 30px;
+    width: 100%;
+}
+.home__row{
+    display: grid;
+    grid-template-columns:repeat(auto-fill,minmax(30%,1fr)) ;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.home__row__button button{
+    background-color: var(--primary-color);
+    padding: 10px;
+    width: 10%;
+    z-index: 1;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    border:none
+}
+/* Modal Header */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+ 
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 5px;
+  
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    height: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 5px 16px;
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+padding: 30px 0px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    color: white;
+    border: none;
+  }
+  #myModal > div > div.modal-body > form > div > button{
+    background-color: var(--primary-color);
+    padding: 10px;
+    width: 30%;
+    z-index: 1;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.modal-body>form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.modal-body>form>h5{
+    margin-bottom: 5px;
+}
+.modal-body>form>input{
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 100%;
+    border: 1px solid rgb(36, 35, 35);
+
+}
+.form__button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 560px) {
+ 
+  .home__container .home__image{
+    margin-bottom: -150px;
+   
+  }
+  .home__row__button button{
+    width: 30%;
+  }
+  .home__row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .modal-content{
+    width: 90%;
+    height: 80%;
+  }
+  .modal{
+    padding-top: 80px;
+    z-index: 100;
+
+  }
+  .modal-body>form{
+    width: 90%;
+  }
+  #myModal > div > div.modal-body > form > div > button{
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width:560px)and (max-width: 980px){
+  .home__container .home__image{
+    margin-bottom: -180px;
+   
+  }
+  .home__row__button button{
+    width: 30%;
+  }
+  .home__row{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  }
+  .modal{
+    padding-top: 80px;
+    z-index: 100;
+
+  }
+  .modal-content{
+    width: 80%;
+    height: 60%;
+  }
+}
